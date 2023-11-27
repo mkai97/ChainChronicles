@@ -1,0 +1,118 @@
+<template>
+	<view class="cvebg">
+		<view class="avatar">
+			<image class="avatarImg" src="../../static/logo.png" mode="scaleToFill"></image>
+		</view>
+		<view class="chatCont">
+			<view class="cvTime">
+				<text class="cvTimeTxt">
+					{{cve0.createTime}}
+				</text>
+
+			</view>
+			<view class="content">
+				<rich-text :nodes="cve0.content"></rich-text>
+			</view>
+
+		</view>
+
+	</view>
+</template>
+
+<script>
+	import { type PropType } from 'vue'
+
+	type cve = {
+		id : string,
+		createTime : string,
+		fromUser : string,
+		toUser : string,
+		content : string,
+		contType : string,
+		isSelf : number
+	}
+	export default {
+		name: "conversationOtherSide",
+		props: {
+			cve0: {
+				type: Object as PropType<cve>,
+				default: () : cve => ({
+					id: "1",
+					createTime: "2023-11-23",
+					fromUser: "100",
+					toUser: "100",
+					content: "<div>StringStringStringStringStringStringStringStringStringStringStringStringStringStringStringString</div><div>666</div>",
+					contType: "text",
+					isSelf: 1
+				} as cve)
+
+			}
+		},
+		data() {
+			return {
+
+			};
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.cvebg {
+		width: 750rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+
+		.avatar {
+			width: 120rpx;
+			height: 120rpx;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 12rpx;
+
+		}
+
+		.avatarImg {
+			width: 90rpx;
+			height: 90rpx;
+			border-radius: 50rpx;
+
+		}
+
+		.chatCont {
+			width: 520rpx;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+
+
+			.cvTime {
+				width: 100%;
+				height: 60rpx;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				margin-top: 20rpx;
+
+				.cvTimeTxt {
+					font-size: 24rpx;
+					color: #ccc;
+				}
+			}
+
+			.content {
+				background-color: #daf8d4;
+				width: 400rpx;
+				min-height: 10rpx;
+				border-radius: 24rpx;
+				padding: 25rpx;
+
+			}
+		}
+	}
+</style>

@@ -1,0 +1,13 @@
+import App from './App'
+
+import BGani from "@/components/bgani/bgani"
+
+import { createSSRApp } from 'vue'
+export function createApp() {
+	const app = createSSRApp(App)
+	app.component('bgani', BGani);
+
+	return {
+		app
+	}
+}

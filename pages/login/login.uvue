@@ -1,0 +1,139 @@
+<template>
+	<bgani>
+		<view class="content">
+			<view class="conTitle">
+				<text class="text">链</text>
+				<text class="text">式</text>
+				<text class="text">反</text>
+				<text class="text">应</text>
+			</view>
+			<view class="userIpt flexCenter">
+				<input class="userIpttxt" type="text" placeholder-class="placeholderClass" placeholder="请输入用户名"
+					v-model="loginInfo.username" />
+			</view>
+			<view class="passIpt flexCenter">
+				<input class="passIpttxt" type="password" placeholder-class="placeholderClass" placeholder="请输入密码"
+					v-model="loginInfo.password" />
+			</view>
+
+			<view class="btnbox">
+				<button @click="loginHandle" class="loginBtn" type="button">登录</button>
+			</view>
+
+		</view>
+	</bgani>
+</template>
+
+<script>
+	type loginInfo = {
+		username : String,
+		password : String
+	}
+	export default {
+		data() {
+			return {
+				loginInfo: {
+					"username": "",
+					"password": ""
+				} as loginInfo
+
+			}
+		},
+		onShow() {
+
+
+		},
+		methods: {
+			loginHandle() {
+				console.log("loginStart")
+				uni.redirectTo({
+					url: '/pages/index/index'
+				});
+			}
+
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.flexCenter {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.content {
+		width: 750rpx;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.conTitle {
+			width: 400rpx;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			margin-top: -70rpx;
+
+			.text {
+				font-weight: 700;
+				font-size: 84rpx;
+				color: #fff;
+			}
+		}
+
+		.userIpt {
+			width: 540rpx;
+			height: 70rpx;
+			border: 2rpx solid #fff;
+			border-radius: 14rpx;
+			padding: 12rpx 16rpx;
+			margin-top: 90rpx;
+			box-shadow: 5rpx 5rpx 14rpx #333;
+			background-color: #fff;
+
+			.userIpttxt {
+				text-align: center;
+				color: #333;
+			}
+		}
+
+		.passIpt {
+			width: 540rpx;
+			height: 70rpx;
+			border: 2rpx solid #fff;
+			border-radius: 14rpx;
+			padding: 12rpx 16rpx;
+			margin-top: 40rpx;
+			background-color: #fff;
+			box-shadow: 5rpx 5rpx 14rpx #333;
+
+			.passIpttxt {
+				text-align: center;
+				color: #333;
+			}
+
+		}
+
+
+		.btnbox {
+			margin-top: 74rpx;
+			box-shadow: 5rpx 5rpx 8rpx #333;
+
+			.loginBtn {
+				width: 540rpx;
+				color: #333;
+				background-color: #Ededed;
+				border-radius: 14rpx;
+
+			}
+		}
+	}
+
+	// 账号和密码的提示文字
+	.placeholderClass {
+		color: #333;
+	}
+</style>

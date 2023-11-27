@@ -1,0 +1,112 @@
+<template>
+	<view class="cvbg">
+		<!-- #ifdef APP -->
+		<scroll-view :refresher-triggered="refresherTriggered" @refresherrefresh="getMoreCve" :refresher-enabled="true"
+			:scroll-top="scrollTop" style="flex:1;background-color: #f7f7f7;">
+		<!-- #endif -->
+			<cve></cve>
+			<cveo></cveo>
+			<view id="msgbottom" style="height: 160rpx;">
+
+			</view>
+		<!-- #ifdef APP -->
+		</scroll-view>
+		<!-- #endif -->
+		<view class="cveiptBox">
+			<textarea class="cveipt" cursor-spacing="20" name="cveipt" id="cveipt" :fixed="true"
+				:auto-height="true"></textarea>
+			<button @click="sendMsg" class="sendBtn">发送</button>
+		</view>
+	</view>
+</template>
+
+<script>
+	import cve from "@/components/conversation/conversation.uvue"
+	import cveo from "@/components/conversationOtherSide/conversationOtherSide.uvue"
+	export default {
+		components: {
+			cve,
+			cveo
+		},
+		data() {
+			return {
+				scrollTop: 0,
+				refresherTriggered: false
+
+			}
+		},
+		onLoad() {
+
+			setTimeout(() => {
+				this.toBottom()
+			}, 300);
+
+		},
+		methods: {
+			toBottom() {
+
+				this.scrollTop = 999999
+
+			},
+			getMoreCve() {
+				this.refresherTriggered = true
+
+				setTimeout(() => {
+					this.refresherTriggered = false
+
+				}, 2000);
+			},
+
+			sendMsg() {
+
+			}
+
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.cvbg {
+		width: 750rpx;
+		height: 100%;
+		background-color: #f7f7f7;
+		border-top: 2rpx solid #f2f2f2;
+
+	}
+
+	.cveiptBox {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #fff;
+		min-height: 90rpx;
+		padding: 20rpx 24rpx;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+
+		.cveipt {
+			width: 70%;
+			padding: 12rpx;
+			background-color: #f7f7f7;
+		}
+
+		.sendBtn {
+			width: 120rpx;
+			height: 70rpx;
+			padding-left: 0;
+			padding-right: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			line-height: 70rpx;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			background-color: #333;
+		}
+	}
+</style>

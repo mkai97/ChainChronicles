@@ -1,0 +1,36 @@
+{
+  "version": "1",
+  "env": {
+    "compiler_version": "3.96"
+  },
+  "files": {
+    "components/conversation/conversation.kt": {
+      "md5": "69ecd7d41d3323a7c2651cb6d45fc9f542126afb",
+      "class": "GenComponentsConversationConversation"
+    },
+    "index.kt": {
+      "class": "",
+      "md5": "49afec379fec6c299069ef96ab5764a7a8978920"
+    },
+    "components/conversationOtherSide/conversationOtherSide.kt": {
+      "md5": "fbebf2cf4674f8b6d53d48174426795b42df40c0",
+      "class": "GenComponentsConversationOtherSideConversationOtherSide"
+    },
+    "pages/index/index.kt": {
+      "md5": "eb74e07a9506644dfe253e20a94b5a861d386051",
+      "class": "GenPagesIndexIndex"
+    },
+    "pages/chatView/chatView.kt": {
+      "md5": "ac717788771154db69d4cba8b846de95d8e54f9c",
+      "class": "GenPagesChatViewChatView"
+    },
+    "components/bgani/bgani.kt": {
+      "class": "GenComponentsBganiBgani",
+      "md5": "86bb14028ef2cb440fee75421f0ea90a05acc6e3"
+    },
+    "pages/login/login.kt": {
+      "md5": "0771835e6b36172ec70ec11c0c11691adf40a63a",
+      "class": "GenPagesLoginLogin"
+    }
+  }
+}

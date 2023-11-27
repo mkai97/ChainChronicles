@@ -1,0 +1,85 @@
+<template>
+	<bgani>
+		<view class="content">
+			<view class="btnGroup">
+				<view v-for="item in btnList" class="btnitem">
+					<button @click="navTo(item.id)" type="button" :style="{
+						'border-radius':'14rpx',
+							'background-color':item.btnColor,
+							'color':item.txtColor
+							}">{{item.btnName}}</button>
+				</view>
+			</view>
+		</view>
+	</bgani>
+
+</template>
+
+<script>
+	type btnItem = {
+		id : Number,
+		btnName : String,
+		btnColor : String,
+		txtColor : String
+	}
+
+	export default {
+		data() {
+			return {
+				btnList: [
+					{
+						id: 1,
+						btnName: "探险/探索故事",
+						btnColor: "linear-gradient(to right, #eee, #333)",
+						txtColor: "#fff"
+					},
+					{
+						id: 2,
+						btnName: "武侠/古代故事",
+						btnColor: "linear-gradient(to left, #eee, #333)",
+						txtColor: "#fff"
+					}
+				] as Array<btnItem>
+
+
+			}
+		},
+		onLoad() {
+
+
+
+		},
+		methods: {
+			navTo(id : number) {
+				uni.navigateTo({
+					url: "/pages/chatView/chatView?id=" + id
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+
+	}
+
+	.btnGroup {
+		width: 750rpx;
+		height: 100%;
+		padding: 45rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+
+		.btnitem {
+			margin: 15rpx 0;
+			box-shadow: 4rpx 4rpx 24rpx #333;
+		}
+	}
+</style>

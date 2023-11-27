@@ -1,0 +1,79 @@
+<template>
+	<view class="outbg">
+		<image class="bgimg" :src="currentUrl" mode="aspectFill"></image>
+		<view :style="{'opacity':opacity}" class="login_bg">
+
+			<slot></slot>
+		</view>
+	</view>
+
+</template>
+
+<script>
+	export default {
+		name: "bgani",
+		props: {
+			opacity: {
+				type: Number,
+				default: 0.8
+			},
+		},
+		data() {
+			return {
+				urls: [
+					"http://qn.mkai97.cn/appstatic/ddf37eef063b1523cbc2b3b6aa8840e0.jpg",
+					"http://qn.mkai97.cn/appstatic/2242645049.gif",
+					"http://qn.mkai97.cn/appstatic/mmexport1685954969368.jpg",
+					"http://qn.mkai97.cn/appstatic/11ac618126564008f716c505cf196a73.jpg",
+					"http://qn.mkai97.cn/appstatic/2242645049.gif",
+					"http://qn.mkai97.cn/appstatic/47a7b6f776c742ffcefd768553174b0b.jpg",
+					"http://qn.mkai97.cn/appstatic/b88f432ce3723432bb730ffcc224b1dc.jpg",
+					"http://qn.mkai97.cn/appstatic/ddf37eef063b1523cbc2b3b6aa8840e0.jpg",
+					// "http://qn.mkai97.cn/appstatic/mmexport1638274091813.mp4"
+					"http://qn.mkai97.cn/appstatic/mmexport1685954969368.jpg"
+				],
+				currentUrl: "http://qn.mkai97.cn/appstatic/ddf37eef063b1523cbc2b3b6aa8840e0.jpg"
+
+			};
+		},
+		created() {
+			this.radImg()
+		},
+		methods: {
+			radImg() {
+				// 乘以4是因为Math.random()生成的随机数范围为[0, 1)
+
+				var randomNum = Math.floor(Math.random() * this.urls.length);
+				this.currentUrl = this.urls[randomNum]
+
+			}
+		},
+
+	}
+</script>
+
+<style lang="scss">
+	.outbg {
+		width: 750rpx;
+		height: 100%;
+		position: relative;
+	}
+
+	.login_bg {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		width: 750rpx;
+		height: 100%;
+		background-image: linear-gradient(to bottom right, #FFF, #333);
+		opacity: 0.8;
+
+	}
+
+	.bgimg {
+		width: 750rpx;
+		height: 100%;
+	}
+</style>
